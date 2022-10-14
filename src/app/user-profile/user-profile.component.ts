@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   user: any = {};
+  documentaries: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -26,6 +27,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
   }
+
 
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {

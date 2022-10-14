@@ -27,13 +27,13 @@
             </button>
 
             <!-- Render add to or remove from favorites button depending on isFav -->
-            <button mat-button *ngIf="!isFav(documentary._id)" (click)="addToFavoriteDocumentaries(documentary._id)"
-                color="primary">
-                <mat-icon class="favorite-icon">favorite_border</mat-icon>
-            </button>
-            <button mat-button *ngIf="isFav(documentary._id)" (click)="removeFromFavoriteDocumentaries(documentary._id)"
-                color="primary">
-                <mat-icon>favorite</mat-icon>
+            <!--Add to favorites button-->
+            <button matTooltip="Favorite documentary" matTooltipPosition="above" mat-icon-button
+                (click)="onToggleFavoriteDocumentary(documentary._id)">
+                <mat-icon color="warn">
+                    <span *ngIf="isFav(documentary._id); else elseBlock">star</span>
+                    <ng-template #elseBlock>favorite_border</ng-template>
+                </mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>

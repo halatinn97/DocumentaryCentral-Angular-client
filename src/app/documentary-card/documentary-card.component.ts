@@ -45,6 +45,26 @@ export class DocumentaryCardComponent implements OnInit {
     });
   }
 
+  onToggleFavoriteDocumentary(id: string): any {
+    if (this.isFav(id)) {
+      this.fetchApiData.removeFavoriteDocumentary(id).subscribe((resp: any) => {
+        this.snackBar.open('Removed from favorites!', 'OK', {
+          duration: 2000,
+        });
+      });
+      const index = this.favoriteDocumentaries.indexOf(id);
+      return this.favoriteDocumentaries.splice(index, 1);
+    } else {
+      this.fetchApiData.addFavoriteDocumentary(id).subscribe((response: any) => {
+        this.snackBar.open('Added to favorites!', 'OK', {
+          duration: 2000,
+        });
+      });
+    }
+    return this.favoriteDocumentaries.push(id);
+  }
+
+
   getFavoriteDocumentaries(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favoriteDocumentaries = resp;
@@ -65,7 +85,6 @@ export class DocumentaryCardComponent implements OnInit {
         Name: name,
         Description: description,
       },
-      // Assign dialog width
       width: '500px'
     });
   }
