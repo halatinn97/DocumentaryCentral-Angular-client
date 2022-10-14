@@ -16,6 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DocumentaryCardComponent implements OnInit {
   documentaries: any[] = [];
   favoriteDocumentaries: any[] = [];
+  user: any = localStorage.getItem('user');
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -25,7 +26,15 @@ export class DocumentaryCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDocumentaries();
-    this.getFavoriteDocumentaries();
+    this.getUser();
+  }
+
+  getUser(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.user = resp;
+      console.log(this.user);
+      return this.user;
+    });
   }
 
   getDocumentaries(): void {
@@ -37,7 +46,7 @@ export class DocumentaryCardComponent implements OnInit {
   }
 
   getFavoriteDocumentaries(): void {
-    this.fetchApiData.getFavoriteDocumentaries().subscribe((resp: any) => {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
       this.favoriteDocumentaries = resp;
       console.log(this.favoriteDocumentaries);
       return this.favoriteDocumentaries;
