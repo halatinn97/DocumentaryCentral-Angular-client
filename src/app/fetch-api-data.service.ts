@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 const apiUrl = 'https://documentary-central.herokuapp.com/';
 
 const token = localStorage.getItem('token');
-const username = localStorage.getItem('username');
+const user = localStorage.getItem('user');
 
 @Injectable({
   providedIn: 'root'
@@ -94,10 +94,10 @@ export class FetchApiDataService {
   }
 
   // Get user by username
-  getUser(username: any): Observable<any> {
+  getUser(): Observable<any> {
 
     return this.http
-      .get(apiUrl + 'users/' + username, {
+      .get(apiUrl + `users/${user}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -110,10 +110,10 @@ export class FetchApiDataService {
 
 
   // Add favorite documentary
-  addFavoriteDocumentary(documentaryId: any): Observable<any> {
+  addFavoriteDocumentary(documentaryId: string): Observable<any> {
 
     return this.http
-      .post(apiUrl + `users/${username}/documentaries/${documentaryId}`, {}, {
+      .post(apiUrl + `users/${user}/documentaries/${documentaryId}`, { FavoriteDocumentary: documentaryId }, {
         headers: new HttpHeaders({
           Authorization: `Bearer ${token}`,
         })
@@ -123,12 +123,20 @@ export class FetchApiDataService {
         catchError(this.handleError)
       );
   }
+  // Get all favorite documentaries
+  getFavoriteDocumentaries(): Observable<any> {
+    return this.http
+      .get(apiUrl + `users/${user}/documentaries`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
 
   // Remove documentary from favorites
-  removeFavoriteDocumentary(documentaryID: any): Observable<any> {
+  removeFavoriteDocumentary(documentaryId: string): Observable<any> {
 
     return this.http
-      .delete(apiUrl + `users/${username}/documentaries/${documentaryID}`, {
+      .delete(apiUrl + `users/${user}/documentaries/${documentaryId}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -143,7 +151,7 @@ export class FetchApiDataService {
   editUser(updateDetails: any): Observable<any> {
 
     return this.http
-      .put(apiUrl + `users/${username}`, updateDetails, {
+      .put(apiUrl + `users/${user}`, updateDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -158,7 +166,7 @@ export class FetchApiDataService {
   deleteUser(): Observable<any> {
 
     return this.http
-      .delete(apiUrl + `users/${username}`, {
+      .delete(apiUrl + `users/${user}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),

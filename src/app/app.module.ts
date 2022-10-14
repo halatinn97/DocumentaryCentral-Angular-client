@@ -19,11 +19,18 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
 import { DocumentaryCardComponent } from './documentary-card/documentary-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { FeaturedPersonalityViewComponent } from './featured-personality-view/featured-personality-view.component';
+import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'documentaries', component: DocumentaryCardComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -33,7 +40,13 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     DocumentaryCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfileComponent,
+    GenreViewComponent,
+    FeaturedPersonalityViewComponent,
+    SynopsisViewComponent,
+    EditProfileComponent,
+    NavbarComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,15 @@
+<mat-card class="featured-personality-dialog">
+    <mat-card-title class="featured-personality-dialog-title">{{ data.Name }}</mat-card-title>
+    <br />
+    <mat-dialog-content class="director-dialog-content">
+        <b>Birthday: </b>{{ data.Birthday}}
+        <br>
+        <b>Biography: </b>{{ data.Biography }}
+    </mat-dialog-content>
+    <mat-card-actions class="featured-personality-actions">
+        <button class="featured-personality-close-button" mat-stroked-button
+            aria-label="Close the director details button" mat-dialog-close color="primary">
+            X
+        </button>
+    </mat-card-actions>
+</mat-card>
