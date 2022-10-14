@@ -1,0 +1,54 @@
+.documentary-view {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10em 10em 0;
+    background-color: #8f2e2b;
+}
+
+.mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 10px 5px 5px #d61811;
+    background-color: white;
+    max-width: 20em;
+    width: 20em;
+    margin: 1em;
+    padding: 1em 1em;
+}
+
+.mat-card-header {
+    height: 8em;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.documentaries-title {
+    display: flex;
+    max-width: 210px;
+    justify-content: center;
+    text-align: center;
+    line-height: normal;
+}
+
+img {
+    width: 20em;
+    height: 30em;
+}
+
+.mat-icon-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.favorite-icon {
+    color: red;
+}
+
+.favorite-fill:hover {
+    background-color: red;
+}

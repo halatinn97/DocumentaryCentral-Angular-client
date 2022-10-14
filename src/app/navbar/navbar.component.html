@@ -1,9 +1,15 @@
 <div class="nav-bar">
-    <button mat-button (click)="goToDocumentaries()">Documentaries</button>
-    <span></span>
-    <button mat-button (click)="goToProfile()">Profile</button>
-    <span></span>
-    <button mat-button (click)="logOut()" class="logout-button">
-        <mat-icon>logout</mat-icon> Logout
-    </button>
+    <div class="nav-links">
+        <button mat-button (click)="goToDocumentaries()">Documentaries</button>
+        <span></span>
+        <button mat-button (click)="goToProfile()">Profile</button>
+        <span></span>
+        <button mat-button (click)="logOut()" class="logout-button">
+            <mat-icon>logout</mat-icon> Logout
+        </button>
+    </div>
+    <div class="page-title">
+        <img class="nav-image" src="assets/popcorn.png">
+        <h1>Documentary-Central</h1>
+    </div>
 </div>

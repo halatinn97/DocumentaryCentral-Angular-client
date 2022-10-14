@@ -1,0 +1,28 @@
+.nav-links {
+    display: flex;
+    justify-content: right;
+}
+
+
+.nav-image {
+    width: 5em;
+    height: 6em;
+}
+
+h1 {
+    text-align: center;
+    align-self: center;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row-reverse;
+    place-content: space-between;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.page-title {
+    display: flex;
+    margin-top: 2em;
+}
