@@ -28,6 +28,11 @@ export class DocumentaryCardComponent implements OnInit {
     this.getDocumentaries();
     this.getUser();
   }
+  /**
+  * Get data of user
+  * @return {array} data of user
+  * @function getUser
+  */
 
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -37,6 +42,11 @@ export class DocumentaryCardComponent implements OnInit {
     });
   }
 
+  /**
+  * Get data of all documentaries using API and store locally
+  * @return {array} data of all documentaries
+  * @function getDocumentaries
+  */
   getDocumentaries(): void {
     this.fetchApiData.getAllDocumentaries().subscribe((resp: any) => {
       this.documentaries = resp;
@@ -44,6 +54,13 @@ export class DocumentaryCardComponent implements OnInit {
       return this.documentaries;
     });
   }
+
+  /**
+* Check if documentary was favorited, if not, allow user to favorite it
+* @param {string} id
+* @returns {array} data of all documentaries with favorited or non-favorited tags
+* @function onToggleFavoriteDocumentary
+*/
 
   onToggleFavoriteDocumentary(id: string): any {
     if (this.isFav(id)) {
@@ -64,6 +81,11 @@ export class DocumentaryCardComponent implements OnInit {
     return this.favoriteDocumentaries.push(id);
   }
 
+  /**
+  * Get data of all favorite documentaries 
+  * @return {array} data of all favorite documentaries on user profile
+  * @function getDocumentaries
+  */
 
   getFavoriteDocumentaries(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -73,11 +95,23 @@ export class DocumentaryCardComponent implements OnInit {
     });
   }
 
+  /**
+ * Check if documentary is included in favorite documentary list of user
+ * @param {string} id
+ * @returns {boolean}
+ * @function isFav
+ */
 
   isFav(id: string): boolean {
     return this.favoriteDocumentaries.includes(id)
   }
 
+  /**
+   * Opens dialog of GenreComponent
+   * @param {string} name
+   * @param {string} description
+   * @function openGenreDialog
+   */
 
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
@@ -89,6 +123,14 @@ export class DocumentaryCardComponent implements OnInit {
     });
   }
 
+
+  /**
+* Opens dialog of FeaturedPersonalityViewComponent
+* @param {string} name
+* @param {string} biography
+* @param {date} birth
+* @function openFeaturedPersonalityDialog
+*/
 
   openFeaturedPersonalityDialog(name: string, biography: string, birthday: Date): void {
     this.dialog.open(FeaturedPersonalityViewComponent, {
@@ -102,6 +144,12 @@ export class DocumentaryCardComponent implements OnInit {
 
   }
 
+  /**
+* Opens dialog of SynopsisViewComponent
+* @param {string} synopsis
+* @function openSynopsisDialog
+*/
+
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisViewComponent, {
       data: {
@@ -113,6 +161,12 @@ export class DocumentaryCardComponent implements OnInit {
 
   }
 
+  /**
+  * Add documentary to list of favorite documentaries
+  * @param {string} id
+  * @function addToFavoriteDocumentaries
+  */
+
   addToFavoriteDocumentaries(id: string): void {
     console.log(id);
     this.fetchApiData.addFavoriteDocumentary(id).subscribe((result) => {
@@ -120,6 +174,12 @@ export class DocumentaryCardComponent implements OnInit {
       this.ngOnInit();
     })
   }
+
+  /**
+* Remove documentary to list of favorite documentaries
+* @param {string} id
+* @function removeFromFavoriteDocumentaries
+*/
 
   removeFromFavoriteDocumentaries(id: string): void {
     console.log(id);
