@@ -2,26 +2,52 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
-## Development server
+<img width="300" alt="Screenshot 2022-10-21 at 22 30 33" src="https://user-images.githubusercontent.com/76042761/197284237-e2a5d2bc-d32c-41b4-82f2-f10c851b3fcf.png">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Description: 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+(Server-side in repository: https://github.com/halatinn97/documentary-central)
 
-## Build
+This repository is a continuation of the repository: "documentary-central", the server-side (REST API & database) of my app that displays documentaries (shows, movies) to the user. The client-side of my application uses Angular to create the interface users will use when making requests to, and receiving responses from, the server-side.  It will include several interface views built using the Angular library that will handle data through the previously-defined REST API endpoints.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Features:
 
-## Running unit tests
+- Register & login users safely
+- View & search documentaries 
+- View documentary information
+- Profile view to view & edit user profile
+- Add/remove favorite documentaries feature
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Technologies & frameworks used:
 
-## Running end-to-end tests
+- TypeScript
+- Angular
+- JavaScript
+- HTML
+- SCSS
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### How to get the project running:
 
-## Further help
+Visit website here: https://halatinn97.github.io/DocumentaryCentral-Angular-client/documentaries
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The website works in all major browsers: Chrome, Firefox, Safari, Microsoft Edge
+
+### Dependencies:
+
+    "dependencies": 
+    "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^14.2.5",
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/forms": "^14.2.0",
+    "@angular/material": "^14.2.5",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@angular/router": "^14.2.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+        
+
