@@ -1,0 +1,16 @@
+.main-page,
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #8f2e2b;
+}
+
+.welcome-btns {
+    display: flex;
+}
+
+h1 {
+    color: white;
+}
